@@ -8,8 +8,53 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&display=swap" rel="stylesheet">
+    
+    <!-- 基础图标设置 -->
+    <link rel="icon" type="image/png" sizes="48x48" href="./assets/icons/icon48.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="./assets/icons/icon128.png">
+    
 </head>
 <body>
+    <!-- 新增的安装引导按钮 -->
+    <div class="install-button-wrapper">
+        <button id="installBtn" class="install-button">
+            <img src="./assets/icons/chrome_store.svg" alt="Chrome Store" class="chrome-icon" width="16" height="16">
+            Add to Chrome
+        </button>
+    </div>
+
+    <!-- 新增的安装弹窗 -->
+    <div id="installModal" class="modal">
+        <div class="modal-content">
+            <button class="close-button">&times;</button>
+            <h2>Install TabTodo Extension</h2>
+            <div class="modal-features">
+                <div class="feature">
+                    <span class="feature-icon">✨</span>
+                    <div class="feature-text">
+                        <h3>Transform Your New Tab</h3>
+                        <p>Every new tab becomes your personal todo list</p>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <span class="feature-icon">🔒</span>
+                    <div class="feature-text">
+                        <h3>Privacy First</h3>
+                        <p>Your data stays in your browser</p>
+                    </div>
+                </div>
+            </div>
+            <a href="https://chrome.google.com/webstore/detail/your-extension-id" class="install-cta" target="_blank">
+                Add to Chrome - It's Free
+            </a>
+            <div class="modal-footer">
+                <a href="https://tabtodo.work/tabtodo-privacy/" class="footer-link" target="_blank">Privacy Policy</a>
+                <span class="separator">•</span>
+                <a href="https://github.com/fengwei0001/tabtodo" class="footer-link" target="_blank">Source Code</a>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <h1>
             <span>T</span><span>a</span><span>b</span><span>T</span><span>o</span><span>d</span><span>o</span>
