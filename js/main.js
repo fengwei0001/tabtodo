@@ -255,6 +255,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
         saveTodosToStorage(updatedTodos);
     }
+
+    // 安装按钮相关逻辑
+    const installBtn = document.getElementById('installBtn');
+    const installModal = document.getElementById('installModal');
+    const closeBtn = installModal.querySelector('.close-button');
+
+    installBtn.addEventListener('click', () => {
+        installModal.classList.add('show');
+    });
+
+    closeBtn.addEventListener('click', () => {
+        installModal.classList.remove('show');
+    });
+
+    // 点击模态框外部关闭
+    installModal.addEventListener('click', (e) => {
+        if (e.target === installModal) {
+            installModal.classList.remove('show');
+        }
+    });
+
+    // ESC 键关闭模态框
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && installModal.classList.contains('show')) {
+            installModal.classList.remove('show');
+        }
+    });
+
 });
 
 function setupDragAndDrop(list) {
