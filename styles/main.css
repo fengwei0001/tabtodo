@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-weight: 500;
+    background: #fff;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 90px;
+    font-weight: 1000;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+h1 span {
+    color: #0095E9;
+}
+
+.slogan {
+    text-align: center;
+    color: #5f6368;
+    margin-bottom: 40px;
+    font-size: 16px;
+}
+
+.todo-input {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.add-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    opacity: 1;
+    z-index: 1;
+}
+
+.add-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.add-icon svg path {
+    fill: #0095E9;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 14px 20px 14px 45px;
+    font-size: 16px;
+    border: 1px solid #dfe1e5;
+    border-radius: 24px;
+    box-shadow: 0 1px 6px rgba(32,33,36,0.15);
+    transition: box-shadow 0.3s;
+    color: #0095E9;
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-weight: 500;
+}
+
+input[type="text"]::placeholder {
+    color: #0095E9;
+    opacity: 1;
+}
+
+input[type="text"]:focus::placeholder {
+    color: transparent;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 1px 8px rgba(32,33,36,0.2);
+}
+
+.todo-sections {
+    margin-top: 20px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    color: #202124;
+    font-size: 16px;
+    margin: 20px 0 10px;
+    padding-left: 10px;
+    font-weight: 700;
+}
+
+.todo-count {
+    margin-left: 8px;
+    color: #5f6368;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#todoList {
+    list-style: none;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background: white;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    border: 1px solid #dfe1e5;
+    min-height: 60px;
+    height: auto;
+    position: relative;
+    transition: background-color 0.2s, border-color 0.2s, transform 0.2s ease;
+    cursor: grab;
+    user-select: none;
+}
+
+.todo-item:active {
+    cursor: grabbing;
+}
+
+.todo-item.completed {
+    background: #f8f9fa;
+    border-color: #e8eaed;
+}
+
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+    color: #80868b;
+}
+
+.todo-item input[type="checkbox"] {
+    margin: 0 12px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #0095E9;
+    flex-shrink: 0;
+}
+
+.todo-item.completed input[type="checkbox"] {
+    accent-color: #80868b;
+}
+
+.todo-text {
+    flex: 1;
+    font-size: 16px;
+    color: #202124;
+    line-height: 1.5;
+    word-break: break-word;
+    white-space: pre-wrap;
+    padding: 2px 0;
+    align-self: center;
+}
+
+.more-button {
+    padding: 8px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+    align-self: center;
+}
+
+.more-button:hover {
+    opacity: 1;
+    background: none;
+}
+
+.more-button svg {
+    width: 24px;
+    height: 24px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 8px 0;
+    min-width: 150px;
+    z-index: 1000;
+}
+
+.dropdown-menu button {
+    width: 100%;
+    padding: 8px 16px;
+    text-align: left;
+    background: none;
+    color: #202124;
+    border: none;
+    cursor: pointer;
+    border-radius: 0;
+    font-family: inherit;
+    font-weight: 500;
+}
+
+.dropdown-menu button:hover {
+    background: #f8f9fa;
+}
+
+#activeTodos:empty,
+#completedTodos:empty {
+    display: none;
+}
+
+.todo-item.dragging {
+    opacity: 0.5;
+    background: #f0f0f0;
+    cursor: grabbing;
+}
+
+.todo-item.dragging * {
+    cursor: grabbing !important;
+}
+
+.placeholder {
+    background: #f9f9f9;
+    border: 2px dashed #ccc;
+}
+
+/* 移动设备适配 */
+@media (max-width: 600px) {
+    .container {
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 60px;
+    }
+
+    .todo-item {
+        padding: 12px;
+    }
+
+    input[type="text"] {
+        font-size: 15px;
+        padding: 12px 16px 12px 40px;
+    }
+}
