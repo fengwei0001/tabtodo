@@ -264,6 +264,7 @@ input[type="text"]:focus {
     top: 20px;
     right: 20px;
     z-index: 1000;
+    display: none;
 }
 
 .install-button {
