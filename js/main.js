@@ -7,6 +7,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const activeTodosSection = document.getElementById('activeTodos');
     const completedTodosSection = document.getElementById('completedTodos');
 
+    //移动端不显示安装插件的引导
+    function isDesktopChrome() {
+        const userAgent = navigator.userAgent;
+        
+        // 检查是否是 Chrome
+        const isChrome = /Chrome/i.test(userAgent) && !/Chromium|EdgeHTML|Edge/i.test(userAgent);
+        
+        // 检查是否是桌面操作系统
+        const isMac = /Macintosh|MacIntel|MacPPC|Mac68K/i.test(userAgent);
+        const isWindows = /Win32|Win64|Windows|WinCE/i.test(userAgent);
+        const isLinux = /Linux/i.test(userAgent) && !/Android/i.test(userAgent); // 排除 Android
+        
+        // 返回是否是桌面版 Chrome
+        return isChrome && (isMac || isWindows || isLinux);
+    }
+    
+    // 使用示例
+    const installButtonWrapper = document.querySelector('.install-button-wrapper');
+    if (isDesktopChrome()) {
+        // 如果是桌面版 Chrome，显示安装按钮
+        installButtonWrapper.style.display = 'block';
+    } else {
+        // 如果不是桌面版 Chrome，隐藏安装按钮
+        installButtonWrapper.style.display = 'none';
+    }
+    
     // 设置拖拽排序
     setupDragAndDrop(activeTodoList);
     setupDragAndDrop(completedTodoList);
