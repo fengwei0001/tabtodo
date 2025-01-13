@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const menu = document.createElement('div');
         menu.className = 'dropdown-menu';
         menu.innerHTML = `
-            <button class="delete-btn">Delete</button>
+            <button class="delete-btn" style="color: red;">Delete</button>
         `;
 
         // 计算位置
