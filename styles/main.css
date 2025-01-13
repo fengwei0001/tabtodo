@@ -9,6 +9,9 @@ body {
     font-weight: 500;
     background: #fff;
     min-height: 100vh;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
 }
 
 .container {
